@@ -18,8 +18,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -35,4 +35,67 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.main-container {
+  margin-top: 5vh;
+  margin-left: 5vw;
+  /* border: 1px solid green; */
+}
+
+.secondary-container {
+  margin-top: 10px;
+  margin-left: 7vw;
+  /* border: 1px solid blue; */
+  /* width: 85vw; */
+  text-align: left;
+}
+
+.typing-container {
+  /* overflow: hidden; Ensures the text does not overflow */
+  /* white-space: nowrap; Prevents the text from wrapping */
+  width: 60vw;
+  height: 15vh;
+  overflow: wrap;
+  /* border: 1px solid red; */
+  top: 40px;
+  text-align: left;
+}
+
+.blink {
+  animation: blinker 1s step-start infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.typing-text {
+  display: inline; /* Keeps text inline */
+  animation: typing 8s steps(30, end), blink-caret 0.75s step-end infinite; /* Typing effect and caret blink */
+  color: whitesmoke;
+  text-decoration: none; 
+  font-size: 26px;
+}
+
+.secondary-typing-text { 
+  font-size: 22px;
+  color: whitesmoke;
+  text-decoration: none; 
+  
+}
+
+.bottom-margin {
+  margin-bottom: 10px;
+}
+
+a:hover {
+  color: steelblue;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
 }
