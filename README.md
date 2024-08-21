@@ -7,8 +7,8 @@ Hosted with Google Firebase & live at www.https://traviswhite.dev -
 
 ## To Deploy
 ```bash
-yarn run build # to build the project
-
+yarn run build      # to build the project
+firebase deploy     # must be logged in, with `firebase login`
 ```
 
 ## Available Scripts
