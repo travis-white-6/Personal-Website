@@ -5,6 +5,7 @@ const text = 'Howdy 👋 I\'m Travis White, a San Francisco based software engin
 
 const github = '🐙 GitHub https://github.com/travis-white-6';
 const linkedin = '🏗️ LinkedIn https://www.linkedin.com/in/fungineering/';
+const upwork = "👨‍💻 Upwork https://www.upwork.com/freelancers/~0185d87b7317ce58fb";
 const email = '📧 Contact me@traviswhite.dev';
 
 const speed = 50;
@@ -69,7 +70,11 @@ export const App = () => {
         <div className="secondary-container">
           <TypeWriter className="secondary-typing-text" text={github} />
           <TypeWriter className="secondary-typing-text" text={linkedin} />
+          <TypeWriter className="secondary-typing-text" text={upwork} />
           <TypeWriter className="secondary-typing-text" text={email} />
+        </div>
+        <div className='footer'>
+          <code className='small-text'>Built with React | © 2024 Travis White Consulting LLC</code>
         </div>
       </header>
     </div>
