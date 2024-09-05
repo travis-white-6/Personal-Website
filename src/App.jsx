@@ -86,8 +86,11 @@ export const App = () => {
         </div>
         <div className="secondary-container">
           <TypeWriter className="secondary-typing-text" text={github} isMobile={isMobile} />
+          <br/>
           <TypeWriter className="secondary-typing-text" text={linkedin} isMobile={isMobile} />
+          <br/>
           <TypeWriter className="secondary-typing-text" text={upwork} isMobile={isMobile} />
+          <br/>
           <TypeWriter className="secondary-typing-text" text={email} isMobile={isMobile} />
         </div>
         <div className='footer'>
