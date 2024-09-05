@@ -3,8 +3,16 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 16px;
   pointer-events: none;
+  margin-left: -4px;
+  margin-right: -4px;
+  margin-bottom: -2px;
+}
+
+.Firebase-logo { 
+  height: 16px;
+  margin-bottom: -2px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -18,9 +26,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* align-items: center;
-  justify-content: center; */
-  font-size: calc(10px + 2vmin);
+  font-size: calc(12px + 2vmin);
   color: white;
 }
 
@@ -40,24 +46,19 @@
 .main-container {
   margin-top: 5vh;
   margin-left: 5vw;
-  /* border: 1px solid green; */
 }
 
 .secondary-container {
-  margin-top: 10px;
+  margin-top: 5vh;
   margin-left: 7vw;
-  /* border: 1px solid blue; */
-  /* width: 85vw; */
   text-align: left;
 }
 
 .typing-container {
   /* overflow: hidden; Ensures the text does not overflow */
-  /* white-space: nowrap; Prevents the text from wrapping */
   width: 60vw;
   height: 15vh;
   overflow: wrap;
-  /* border: 1px solid red; */
   top: 40px;
   text-align: left;
 }
@@ -77,11 +78,10 @@
   animation: typing 8s steps(30, end), blink-caret 0.75s step-end infinite; /* Typing effect and caret blink */
   color: whitesmoke;
   text-decoration: none; 
-  font-size: 26px;
 }
 
 .secondary-typing-text { 
-  font-size: 22px;
+  font-size: calc(10px + 2vmin);
   color: whitesmoke;
   text-decoration: none; 
   
@@ -102,15 +102,27 @@ a:hover {
 
 .footer {
   position: fixed;
-  left: 0;
+  left: 5%;
   bottom: 0;
-  width: 100%;
+  width: 90%;
   background-color: #282c34;
   color: white;
   text-align: center;
-  padding: 10px;
+  vertical-align: middle;
+  margin-bottom: 10px;
 }
 
 .small-text {
-  font-size: 12px;
+  font-size: calc(2px + 2vmin);
+  width: 40%;
+  overflow: wrap;
 }
+
+
+/* For screens smaller than 750px (e.g., tablets and mobile devices) */
+@media (max-width: 750px) {
+  .typing-container {
+    width: 100%; /* Full width for smaller screens */
+  }
+}
+

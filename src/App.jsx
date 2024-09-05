@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import ReactLogo from './react-logo.svg';
+import FirebaseLogo from './firebase-icon-180.png';
 
 const text = 'Howdy 👋 I\'m Travis White, a San Francisco based software engineer.';
 
@@ -10,13 +12,15 @@ const email = '📧 Contact me@traviswhite.dev';
 
 const speed = 50;
 
-const TypeWriter = ({ text, className, basic = false }) => {
-
+const TypeWriter = ({ text, className, basic = false, isMobile = false }) => {
   const [displayedText, setDisplayedText] = useState('');
   const [index, setIndex] = useState(0);
+  const lastWord = text.split(' ').pop();
+  const indexLastWordStarts = text.indexOf(lastWord);
+  const dontDisplayLinkText = isMobile && index >= indexLastWordStarts;
 
   useEffect(() => {
-    if (index < text.length) {
+    if (index < text.length && !dontDisplayLinkText) {
       const timer = setTimeout(() => {
         setDisplayedText(displayedText + text.charAt(index));
         setIndex(index + 1);
@@ -26,12 +30,7 @@ const TypeWriter = ({ text, className, basic = false }) => {
     }
   }, [index, text, displayedText]);
 
-  let url = '';
-  if (index === text.length && (text.includes('https://') || text.includes('me@'))) {
-    const stringArr = text.split(' ');
-    url = stringArr[stringArr.length - 1];
-  }
-
+  let url = lastWord;
   if (url.includes('me@')) {
     url = `mailto:${url}`;
   }
@@ -56,8 +55,26 @@ const TypeWriter = ({ text, className, basic = false }) => {
   );
 }
 
+function useMobileDetect() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);  // You can adjust the width breakpoint as needed
+    };
+
+    handleResize();  // Check on initial load
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return isMobile;
+}
+
 
 export const App = () => {
+  const isMobile = useMobileDetect();
 
   return (
     <div className="App">
@@ -68,13 +85,17 @@ export const App = () => {
           </div>
         </div>
         <div className="secondary-container">
-          <TypeWriter className="secondary-typing-text" text={github} />
-          <TypeWriter className="secondary-typing-text" text={linkedin} />
-          <TypeWriter className="secondary-typing-text" text={upwork} />
-          <TypeWriter className="secondary-typing-text" text={email} />
+          <TypeWriter className="secondary-typing-text" text={github} isMobile={isMobile} />
+          <TypeWriter className="secondary-typing-text" text={linkedin} isMobile={isMobile} />
+          <TypeWriter className="secondary-typing-text" text={upwork} isMobile={isMobile} />
+          <TypeWriter className="secondary-typing-text" text={email} isMobile={isMobile} />
         </div>
         <div className='footer'>
-          <code className='small-text'>Built with React | © 2024 Travis White Consulting LLC</code>
+          <code className='small-text'>
+            Built with React <img src={ReactLogo} className="App-logo" alt="react-logo" /> | 
+            Hosted on Firebase <img src={FirebaseLogo} className="Firebase-logo" alt="firebase-logo" /> | 
+            © 2024 Travis White Consulting LLC
+          </code>
         </div>
       </header>
     </div>
