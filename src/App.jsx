@@ -7,7 +7,6 @@ const text = 'Howdy 👋 I\'m Travis White, a San Francisco based software engin
 
 const github = '🐙 GitHub https://github.com/travis-white-6';
 const linkedin = '🏗️ LinkedIn https://www.linkedin.com/in/fungineering/';
-const upwork = "👨‍💻 Upwork https://www.upwork.com/freelancers/~0185d87b7317ce58fb";
 const email = '📧 Contact me@traviswhite.dev';
 
 const speed = 50;
@@ -88,8 +87,6 @@ export const App = () => {
           <TypeWriter className="secondary-typing-text" text={github} isMobile={isMobile} />
           <br/>
           <TypeWriter className="secondary-typing-text" text={linkedin} isMobile={isMobile} />
-          <br/>
-          <TypeWriter className="secondary-typing-text" text={upwork} isMobile={isMobile} />
           <br/>
           <TypeWriter className="secondary-typing-text" text={email} isMobile={isMobile} />
         </div>
