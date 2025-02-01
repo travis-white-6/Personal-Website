@@ -97,7 +97,7 @@ export const App = () => {
           <code className='small-text'>
             Built with React <img src={ReactLogo} className="App-logo" alt="react-logo" /> | 
             Hosted on Firebase <img src={FirebaseLogo} className="Firebase-logo" alt="firebase-logo" /> | 
-            © 2024 Travis White Consulting LLC
+            © 2021-2025 Travis White Consulting LLC
           </code>
         </div>
       </header>
